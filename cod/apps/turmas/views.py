@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMultiAlternatives
 from home.views import nameUser
+from django.contrib.auth.models import User
 from .models import Turma, Post, Comentarios
 from .forms import CriarTurma, criarPost
 import random
@@ -105,6 +106,7 @@ def editarTurma(request, codigo):
         else:
             formPost = CriarTurma(instance=post)
 
+    context = {'nameUser': cc, 'formPost': valores, 'participantes': turma.participantes.all(),'codigo': codigo}
     context = {'nameUser': cc, 'formPost': valores, 'participantes': turma.participantes.all()}
     return render(request, 'turmas/criar.html', context)
 
@@ -246,4 +248,21 @@ def listar_participantes(request, codigo):
         'participantes': participantes,
     }
 
+
     return render(request, 'turmas/turmas.html', context)
+
+def remover_participantes(request, codigo):
+    if request.method == 'POST':
+        acao = request.POST.get('acao')
+        participantes_selecionados = request.POST.getlist('participantes')
+        turma = Turma.objects.get(codigo=codigo)
+
+        if acao == 'remove':
+            for participante_id in participantes_selecionados:
+                participante = get_object_or_404(User, id=participante_id)
+                turma.participantes.remove(participante)
+
+        return redirect('turmas:turmas', codigo=codigo)
+
+    return redirect('turmas:turmas', codigo=codigo)
+

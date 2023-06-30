@@ -41,7 +41,7 @@
     {% endif %}
 
 
-    <form method="POST">
+    <form method="POST" action="{% url 'turmas:remover_participantes' codigo=codigo %}">
         {% csrf_token %}
 
             <br>
@@ -73,24 +73,13 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body">
 
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>-----------</option>
-                            <option value="1">Remover participantes</option>
+                        <select class="form-select" name="acao" aria-label="Default select example">
+                          <option value="remove">Remover participantes</option>
+                          <option value="adicionar">Adicionar como administrador</option>
+                            <option selected disable>-----------</option>
                           </select>
 
-                          <br>
-
-                        {% for participante in participantes %}
-                        <div class="form-check selecionador">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                <p class="labelselecionado">{{participante.username}} </p>
-                            </label>
-                        </div>
-
-                        
-                             <br>
-                        
+                          <br>                   
                         {% endfor %}
 
 
@@ -104,9 +93,10 @@
             {% endif %}
         
             <center>
-                <button type="submit" class="btn btn-info" onclick="validarInput()">Criar</button>
+                <button type="submit" class="btn btn-info" >Salvar</button>
                 <a class="btn btn-secondary" onclick="history.go(-1);">Cancelar</a>
             </center>
+
  </form>
    
 
