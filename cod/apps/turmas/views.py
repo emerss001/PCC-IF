@@ -2,10 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMultiAlternatives
 from home.views import nameUser
-<<<<<<< HEAD
 from django.contrib.auth.models import User
-=======
->>>>>>> f100748969a7d827a7af745ea8431d122310e3e5
 from .models import Turma, Post, Comentarios
 from .forms import CriarTurma, criarPost
 import random
@@ -95,10 +92,7 @@ def criar(request):
 
 def editarTurma(request, codigo):
     cc = nameUser(request)
-<<<<<<< HEAD
-=======
 
->>>>>>> f100748969a7d827a7af745ea8431d122310e3e5
     turma = Turma.objects.get(codigo=codigo)
     valores = CriarTurma(instance=turma).initial
 
@@ -112,11 +106,8 @@ def editarTurma(request, codigo):
         else:
             formPost = CriarTurma(instance=post)
 
-<<<<<<< HEAD
     context = {'nameUser': cc, 'formPost': valores, 'participantes': turma.participantes.all(),'codigo': codigo}
-=======
     context = {'nameUser': cc, 'formPost': valores, 'participantes': turma.participantes.all()}
->>>>>>> f100748969a7d827a7af745ea8431d122310e3e5
     return render(request, 'turmas/criar.html', context)
 
 
@@ -257,7 +248,7 @@ def listar_participantes(request, codigo):
         'participantes': participantes,
     }
 
-<<<<<<< HEAD
+
     return render(request, 'turmas/turmas.html', context)
 
 def remover_participantes(request, codigo):
@@ -274,6 +265,4 @@ def remover_participantes(request, codigo):
         return redirect('turmas:turmas', codigo=codigo)
 
     return redirect('turmas:turmas', codigo=codigo)
-=======
-    return render(request, 'turmas/turmas.html', context)
->>>>>>> f100748969a7d827a7af745ea8431d122310e3e5
+
