@@ -31,6 +31,7 @@ def turmas(request, codigo):
         'provas': posts.filter(tipo='prova'),
         'turma': turma,
         'participantes': participantes,
+        'codigo': codigo,
     }
 
     return render(request, 'turmas/turmas.html', context)
@@ -87,7 +88,7 @@ def criar(request):
         return redirect('home')
 
     context = {'form': CriarTurma, 'nameUser': cc}
-    return render(request, 'turmas/criar.html', context)
+    return render(request, 'turmas/criarturma.html', context)
 
 
 def editarTurma(request, codigo):
@@ -198,7 +199,7 @@ def listarPost(request, codigo, id):
     context = {'nameUser': cc,
                'post': listaPost,
                'comentarios': Comentarios.objects.filter(post=listaPost),
-               'url': url
+               'url': url,
                }
 
     return render(request, 'turmas/post.html', context)

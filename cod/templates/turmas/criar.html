@@ -40,8 +40,8 @@
 
     {% endif %}
 
+  <form method="POST" action="{% url 'turmas:remover_participantes' codigo=codigo %}">
 
-    <form method="POST" action="{% url 'turmas:remover_participantes' codigo=codigo %}">
         {% csrf_token %}
 
             <br>
@@ -103,11 +103,12 @@
             {% endif %}
         
             <center>
-                <button type="submit" class="btn btn-info" >Salvar</button>
-                <a class="btn btn-secondary" onclick="history.go(-1);">Cancelar</a>
+              <button type="submit" class="btn btn-info" >Salvar</button>
+              <a class="btn btn-secondary" onclick="history.go(-1);">Cancelar</a>
             </center>
+            
+          </form>
 
- </form>
 
 
 </div>

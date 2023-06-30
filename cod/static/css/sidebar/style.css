@@ -62,7 +62,6 @@ header {
     border-bottom: 0.5px solid var(--primary-300);
     }
 
-
 .active {
     color: red;
     }
@@ -216,9 +215,8 @@ header {
 }
 
 .calendar{
-  color: var(--accent-200);
+  color: var(--bg-100);
 }
 .calendar:hover{
   color: var(--primary-300);
 }
-
