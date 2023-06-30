@@ -92,7 +92,6 @@ def criar(request):
 
 def editarTurma(request, codigo):
     cc = nameUser(request)
-
     turma = Turma.objects.get(codigo=codigo)
     valores = CriarTurma(instance=turma).initial
 
@@ -107,7 +106,6 @@ def editarTurma(request, codigo):
             formPost = CriarTurma(instance=post)
 
     context = {'nameUser': cc, 'formPost': valores, 'participantes': turma.participantes.all(),'codigo': codigo}
-    context = {'nameUser': cc, 'formPost': valores, 'participantes': turma.participantes.all()}
     return render(request, 'turmas/criar.html', context)
 
 
@@ -248,7 +246,6 @@ def listar_participantes(request, codigo):
         'participantes': participantes,
     }
 
-
     return render(request, 'turmas/turmas.html', context)
 
 def remover_participantes(request, codigo):
@@ -262,7 +259,8 @@ def remover_participantes(request, codigo):
                 participante = get_object_or_404(User, id=participante_id)
                 turma.participantes.remove(participante)
 
+            messages.success(request, 'Participantes removidos com sucesso.')
+
         return redirect('turmas:turmas', codigo=codigo)
 
     return redirect('turmas:turmas', codigo=codigo)
-

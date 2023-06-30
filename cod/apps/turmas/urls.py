@@ -8,7 +8,9 @@ urlpatterns = [
     path('participar', views.participar, name="participar"),
     path('criar', views.criar, name="criar"),
     path('<str:codigo>/editarTurma', views.editarTurma, name="editarTurma"),
+    
     path('<str:codigo>/remover_participantes/', views.remover_participantes, name="remover_participantes"),
+
     path('excluirComentario/<int:comentario_id>', views.excluirComentario, name="excluirComentario"),
     path('excluirPost/<int:post_id>', views.excluirPost, name="excluirPost"),
     path('editarPost/<int:post_id>', views.editarPost, name="editarPost"),
