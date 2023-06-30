@@ -10,16 +10,18 @@ def calendario(request, codigo):
 
    out = []
    for post in posts:
-      out.append({
-         'id': post.id,
-         'title': post.nome,
-         'start': post.dataEntrega.strftime("%Y-%m-%d"),
-         'description': post.descricao,
-         'color': 'red',
-         'extendedProps': {
+      if post.dataEntrega is not None:
+         out.append({
+            'id': post.id,
+            'title': post.nome,
+            'start': post.dataEntrega.strftime("%Y-%m-%d"),
+            'description': post.descricao,
+            'color': 'red',
+            'extendedProps': {
                'description1': 'BioChemistry'
-         }
-      })
+            }
+         })
+
 
    context = {
       'posts_json': json.dumps(out),
@@ -27,10 +29,3 @@ def calendario(request, codigo):
    }
 
    return render(request, 'calendario/calendario.html', context)
-
-
-
-
-
-
-
