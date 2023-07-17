@@ -28,6 +28,13 @@
                     <p class="dataEntrega">Entrega: {{ post.dataEntrega }}</p>
                 </div>
                 {% endif %}
+
+                {% if post.tipo == 'prova' %}
+                <p class="valor">Valor: {{ post.valor }}</p>
+                <div class="entrega">
+                    <p class="dataEntrega">Entrega: {{ post.dataEntrega }}</p>
+                </div>
+                {% endif %}
                 
 
               

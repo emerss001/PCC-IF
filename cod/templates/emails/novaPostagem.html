@@ -47,14 +47,18 @@
             margin-top: 30px;
             text-align: center;
         }
+
+        .size{
+            font-size: 1em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Nova Postagem</h1>
-      	<br>
-        <p>Olá, <strong>{{ nome_usuario }}</strong>!</p>
-        <p>Uma nova postagem foi criada na turma <strong>{{ turma }}</strong>. Confira os detalhes abaixo:</p>
+        <p>EII 🙋🏽‍♂️</p>
+        
+        <p><strong class="size">{{ nome_usuario }}</strong> criou uma nova postagem na turma <strong class="size">{{ turma }}</strong>. Confira os detalhes abaixo:</p>
         
         <h2>{{ titulo_postagem }}</h2>
         <p>{{ conteudo_postagem }}</p>

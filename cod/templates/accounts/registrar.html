@@ -19,6 +19,7 @@
 
 		{% include 'parciais/_alerts.html' %}
 
+		<div class="centerregister">
 		<form action="{% url 'accounts:registrar' %}" method="POST">
 			{% csrf_token %}
 
@@ -59,10 +60,12 @@
 			</button>
 
 		</form>
-
-				<br>
+		<br>
 				<h3>Já tem uma conta? <a href="{% url 'accounts:login' %}">Entrar</a></h3>
-		</center>
+	</div>
+	
+
+				
 	</div>
 
 

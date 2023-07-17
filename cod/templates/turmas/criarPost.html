@@ -41,14 +41,16 @@
 
           <br><br>
 
-          {% if tipo != 'aviso' %}
+          {% if tipo == 'aviso' %}
+          {% comment %} Sem exibir {% endcomment %}
+       {% else %}
           <div class="form-group">
-            <label for="valor">Valor</label>
-            <input type="number" class="form-control" id="id_valor" name="valor" placeholder="Valor">
+             <label for="valor">Valor</label>
+             <input type="number" class="form-control" id="id_valor" name="valor" placeholder="Valor">
           </div>
-
+       
           <br><br>
-          {% endif %}
+       {% endif %}
 
           <div class="form-group">
             <label for="data">Data:</label>

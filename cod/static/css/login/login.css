@@ -35,6 +35,12 @@ body {
 	width: 100%;
 }
 
+.centerregister{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .box .instrucao {
 	color: #52616B;
 }
@@ -207,11 +213,4 @@ button:hover .arrow:before {
 
 .resetPass:hover {
 	background-color: var(--hover-color);
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-	button {
-		width: 100%;
-	}
 }

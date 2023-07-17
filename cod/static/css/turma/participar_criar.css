@@ -94,7 +94,7 @@ p{
 }
 .lista li{
   margin-left: 25%;
-  color: #F3F4F4;
+  color: var(--primary-100);
 }
 
 #color-input {

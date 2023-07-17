@@ -128,12 +128,12 @@
                 {% if request.user == turma.adm %}
                     <form action="{% url 'turmas:excluirPost' atividade.id %}" method="post">
                         {% csrf_token %}
-                        <input class="custom-input" type="submit" value="Apagar">
+                        <input class="btn btn-danger" type="submit" value="Apagar">
                     </form>
             
                     <form action="{% url 'turmas:editarPost' atividade.id %}" method="post">
                         {% csrf_token %}
-                        <input class="custom-input" type="submit" value="Editar">
+                        <input class="btn btn-primary" type="submit" value="Editar">
                     </form>
                 {% endif %}
             </div>
@@ -171,12 +171,12 @@
                     {% if request.user == turma.adm %}
                         <form action="{% url 'turmas:excluirPost' trabalho.id %}" method="post">
                             {% csrf_token %}
-                            <input class="custom-input" type="submit" value="Apagar">
+                            <input class="btn btn-danger" type="submit" value="Apagar">
                         </form>
                 
                         <form action="{% url 'turmas:editarPost' trabalho.id %}" method="post">
                             {% csrf_token %}
-                            <input class="custom-input" type="submit" value="Editar">
+                            <input class="btn btn-primary" type="submit" value="Editar">
                         </form>
                     {% endif %}
                 </div>
@@ -213,12 +213,12 @@
                 {% if request.user == turma.adm %}
                     <form action="{% url 'turmas:excluirPost' prova.id %}" method="post">
                         {% csrf_token %}
-                        <input class="custom-input" type="submit" value="Apagar">
+                        <input class="btn btn-danger" type="submit" value="Apagar">
                     </form>
             
                     <form action="{% url 'turmas:editarPost' prova.id %}" method="post">
                         {% csrf_token %}
-                        <input class="custom-input" type="submit" value="Editar">
+                        <input class="btn btn-primary" type="submit" value="Editar">
                     </form>
                 {% endif %}
             </div>

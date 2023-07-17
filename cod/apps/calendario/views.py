@@ -16,7 +16,7 @@ def calendario(request, codigo):
             'title': post.nome,
             'start': post.dataEntrega.strftime("%Y-%m-%d"),
             'description': post.descricao,
-            'color': 'red',
+            'color': '#a2dd28',
             'extendedProps': {
                'description1': 'BioChemistry'
             }
