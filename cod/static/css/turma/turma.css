@@ -11,9 +11,12 @@ body{
     --bg-200:#C9D6DF;
     --bg-300:#bfc7d1;
     }
+
+
     
     .content{
         margin: 10px 135px;
+        width: 417px;
     }
     
     .createAviso{
@@ -183,4 +186,5 @@ body{
         margin-left: 10px !important;
     }
     
-      
+
+    
