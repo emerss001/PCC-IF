@@ -91,6 +91,7 @@ def criar(request):
     return render(request, 'turmas/criarturma.html', context)
 
 
+@login_required()
 def editarTurma(request, codigo):
     cc = nameUser(request)
     turma = Turma.objects.get(codigo=codigo)
@@ -205,12 +206,14 @@ def listarPost(request, codigo, id):
     return render(request, 'turmas/post.html', context)
 
 
+@login_required()
 def excluirPost(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
+@login_required()
 def excluirComentario(request, comentario_id):
     comentario = Comentarios.objects.get(id=comentario_id)
     comentario.delete()
@@ -238,6 +241,7 @@ def excluirAnexo(request, post_id):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
+@login_required()
 def listar_participantes(request, codigo):
     turma = Turma.objects.get(codigo=codigo)
     participantes = turmas.participantes.all()
@@ -249,6 +253,8 @@ def listar_participantes(request, codigo):
 
     return render(request, 'turmas/turmas.html', context)
 
+
+@login_required()
 def remover_participantes(request, codigo):
     if request.method == 'POST':
         acao = request.POST.get('acao')

@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from turmas.models import Turma, Post
 import json
+from django.contrib.auth.decorators import login_required
 
 
+
+@login_required()
 def calendario(request, codigo):
 
    turma = Turma.objects.get(codigo=codigo)
@@ -16,7 +19,7 @@ def calendario(request, codigo):
             'title': post.nome,
             'start': post.dataEntrega.strftime("%Y-%m-%d"),
             'description': post.descricao,
-            'color': '#a2dd28',
+            'color': '#94d96a',
             'extendedProps': {
                'description1': 'BioChemistry'
             }

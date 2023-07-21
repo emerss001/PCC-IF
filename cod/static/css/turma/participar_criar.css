@@ -183,14 +183,3 @@ small{
   margin-bottom: -10px;
 }
 
-@media(max-width: 1038px){
-  .digite{
-    line-height: 20px;
-  }
-}
-
-@media(max-width: 930px){
-  .mudarconta{
-    
-  }
-}
